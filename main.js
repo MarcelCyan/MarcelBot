@@ -40,7 +40,7 @@ const starts = async (client = new WAConnection()) => {
    client.on('qr', () => {
        console.log(color('[','white'), color('!','red'), color(']','white'), color('Scan bang'))
 })
-   fs.existsSync('./media/session/QrNya.json') && client.loadAuthInfo('./media/session/QrNya.json')
+   fs.existsSync('./media/QrNya.json') && client.loadAuthInfo('./media/QrNya.json')
    client.on('connecting', () => {
        console.log(bgcolor(waktoonyabro, 'red'))
 })
@@ -48,8 +48,9 @@ const starts = async (client = new WAConnection()) => {
        start('2', '\n');
 })
    await client.connect({timeoutMs: 30*1000})
-   fs.writeFileSync('./media/session/QrNya.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
-       start('2',color("\nMenunggu Pesan Baru...\n       メ𝐶𝑒𝑙  ⁴̅⁰͍⁴̵𒉽", 'yellow'));
+   fs.writeFileSync('./media/QrNya.json', JSON.stringify(client.base64EncodedAuthInfo(), null, '\t'))
+       start('2',color("\nMenunggu Pesan Baru...\n       メ𝐶𝑒𝑙  ⁴̅⁰͍⁴̵𒉽", 'yellow'));
+
                                     
    client.on('ws-close', () => {
        client.logger.warn('Connected Timeout')
